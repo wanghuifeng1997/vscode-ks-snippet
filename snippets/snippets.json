@@ -1,0 +1,965 @@
+{
+    "ks-Base64转ArrayBuffer": {
+        "prefix": "ks.base64ToArrayBuffer()",
+        "body": [
+            "ks.base64ToArrayBuffer(${1:base64})"
+        ],
+        "description": "ks-Base64转ArrayBuffer"
+    },
+    "ks-ArrayBuffer转Base64": {
+        "prefix": "ks.arrayBufferToBase64()",
+        "body": [
+            "ks.arrayBufferToBase64(${1:arrayBuffer})"
+        ],
+        "description": "ks-ArrayBuffer转Base64"
+    },
+    "ks-发起网络请求": {
+        "prefix": "ks.request()",
+        "body": [
+            "ks.request({",
+            "\turl: 'https://www.example.com/request', //仅为示例，并非真实接口地址。",
+            "\tdata: {",
+            "\t\ttext: 'ks.request'",
+            "\t},",
+            "\theader: {",
+            "\t\t'custom-header': 'hello' //自定义请求头信息",
+            "\t},",
+            "\tsuccess: (res) => {",
+            "\t\tconsole.log(res.data);",
+            "\t\tthis.text = 'request success';",
+            "\t}",
+            "});$0"
+        ],
+        "description": "ks-发起网络请求"
+    },
+    "ks-选择图片": {
+        "prefix": "ks.chooseImage()",
+        "body": [
+            "ks.chooseImage({",
+            "\tsuccess: (chooseImageRes) => {",
+            "\t\tconst tempFilePaths = chooseImageRes.tempFilePaths;",
+            "\t\tks.uploadFile({",
+            "\t\t\turl: 'https://www.example.com/upload', //仅为示例，非真实的接口地址",
+            "\t\t\tfilePath: tempFilePaths[0],",
+            "\t\t\tname: 'file',",
+            "\t\t\tformData: {",
+            "\t\t\t\t'user': 'test'",
+            "\t\t\t},",
+            "\t\t\tsuccess: (uploadFileRes) => {",
+            "\t\t\t\tconsole.log(uploadFileRes.data);",
+            "\t\t\t}",
+            "\t\t});",
+            "\t}",
+            "});$0"
+        ],
+        "description": "ks-选择图片"
+    },
+    "ks-上传文件": {
+        "prefix": "ks.uploadFile()",
+        "body": [
+            "ks.uploadFile({",
+            "\turl: 'https://www.example.com/upload', //仅为示例，非真实的接口地址",
+            "\tfilePath: tempFilePaths[0],",
+            "\tname: 'file',",
+            "\tformData: {",
+            "\t\t'user': 'test'",
+            "\t},",
+            "\tsuccess: (uploadFileRes) => {",
+            "\t\tconsole.log(uploadFileRes.data);",
+            "\t}",
+            "});$0"
+        ],
+        "description": "ks-上传文件"
+    },
+    "ks-下载文件": {
+        "prefix": "ks.downloadFile()",
+        "body": [
+            "ks.downloadFile({",
+            "\turl: 'https://www.example.com/file/test', //仅为示例，并非真实的资源",
+            "\tsuccess: (res) => {",
+            "\t\tif (res.statusCode === 200) {",
+            "\t\t\tconsole.log('下载成功');",
+            "\t\t}",
+            "\t}",
+            "});$0"
+        ],
+        "description": "ks-下载文件"
+    },
+    "ks-创建一个 WebSocket 连接": {
+        "prefix": "ks.connectSocket()",
+        "body": [
+            "ks.downloadFile({",
+            "\turl: 'https://www.example.com/file/test', //仅为示例，并非真实的资源",
+            "\tsuccess: (res) => {",
+            "\t\tif (res.statusCode === 200) {",
+            "\t\t\tconsole.log('下载成功');",
+            "\t\t}",
+            "\t}",
+            "});$0"
+        ],
+        "description": "ks-创建一个 WebSocket 连接"
+    },
+    "ks-创建一个 WebSocket 连接": {
+        "prefix": "ks.connectSocket()",
+        "body": [
+            "ks.connectSocket({",
+            "\turl: 'wss://www.example.com/socket',",
+            "\tdata() {",
+            "\t\treturn {",
+            "\t\t\tx: '',",
+            "\t\t\ty: ''",
+            "\t\t};",
+            "\t},",
+            "\theader: {",
+            "\t\t'content-type': 'application/json'",
+            "\t},",
+            "\tprotocols: ['protocol1'],",
+            "\tmethod: 'GET'",
+            "});$0"
+        ],
+        "description": "ks-创建一个 WebSocket 连接"
+    },
+    "ks-监听WebSocket连接打开事件": {
+        "prefix": "ks.onSocketOpen()",
+        "body": [
+            "ks.onSocketOpen(function (res) {",
+            "\tconsole.log('WebSocket连接已打开！');",
+            "});$0"
+        ],
+        "description": "ks-监听WebSocket连接打开事件"
+    },
+    "ks-监听WebSocket错误": {
+        "prefix": "ks.onSocketError()",
+        "body": [
+            "ks.onSocketError(function (res) {",
+            "\tconsole.log('WebSocket连接已打开！');",
+            "});$0"
+        ],
+        "description": "ks-监听WebSocket错误"
+    },
+    "ks-监听WebSocket接受到服务器的消息事件": {
+        "prefix": "ks.onSocketMessage()",
+        "body": [
+            "ks.onSocketMessage(function (res) {",
+            "\tconsole.log('收到服务器内容：' + res.data);",
+            "});$0"
+        ],
+        "description": "ks-监听WebSocket接受到服务器的消息事件"
+    },
+    "ks-WebSocket发送数据": {
+        "prefix": "ks.sendSocketMessage()",
+        "body": [
+            "ks.sendSocketMessage({",
+            "\tdata: msg$0",
+            "});"
+        ],
+        "description": "ks-WebSocket发送数据"
+    },
+    "ks-关闭 WebSocket 连接": {
+        "prefix": "ks.closeSocket()",
+        "body": [
+            "ks.closeSocket()"
+        ],
+        "description": "ks-关闭 WebSocket 连接"
+    },
+    "ks-监听WebSocket关闭": {
+        "prefix": "ks.onSocketClose()",
+        "body": [
+            "ks.onSocketClose(function (res) {",
+                "\tconsole.log('WebSocket 已关闭！');",
+            "});$0"
+        ],
+        "description": "ks-监听WebSocket关闭"
+    },
+    "ks-跳转到应用内的某个页面": {
+        "prefix": "ks.navigateTo()",
+        "body": [
+            "ks.navigateTo({",
+                "\t url: 'test?id=1&name=ks$0';",
+            "});$0"
+        ],
+        "description": "ks-跳转到应用内的某个页面"
+    },
+    "ks-关闭当前页面跳转到应用内的某个页面": {
+        "prefix": "ks.redirectTo()",
+        "body": [
+            "ks.redirectTo({",
+                "\t url: 'test?id=1&name=ks$0';",
+            "});$0"
+        ],
+        "description": "ks-关闭当前页面跳转到应用内的某个页面"
+    },
+    "ks-关闭所有页面，打开到应用内的某个页面": {
+        "prefix": "ks.reLaunch()",
+        "body": [
+            "ks.reLaunch({",
+                "\t url: 'test?id=1&name=ks$0';",
+            "});$0"
+        ],
+        "description": "ks-关闭所有页面，打开到应用内的某个页面"
+    },
+    "ks-跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面": {
+        "prefix": "ks.switchTab()",
+        "body": [
+            "ks.switchTab({",
+                "\t url: '/pages/index/index$0';",
+            "});$0"
+        ],
+        "description": "ks-跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面"
+    },
+    "ks-关闭当前页面，返回上一页面或多级页面": {
+        "prefix": "ks.navigateBack()",
+        "body": [
+            "ks.navigateBack({",
+                "\t delta: 2$0",
+            "});"
+        ],
+        "description": "ks-关闭当前页面，返回上一页面或多级页面"
+    },
+    "ks-关闭当前页面，返回上一页面或多级页面": {
+        "prefix": "ks.navigateBack()",
+        "body": [
+            "ks.navigateBack({",
+                "\t delta: 2$0",
+            "});"
+        ],
+        "description": "ks-关闭当前页面，返回上一页面或多级页面"
+    },
+    "ks-将数据存储在本地缓存中指定的 key 中,异步接口": {
+        "prefix": "ks.setStorage()",
+        "body": [
+            "ks.setStorage({",
+                "\tkey: 'storage_key',",
+                "\tdata: 'hello',",
+                "\tsuccess: function () {",
+                    "\t\tconsole.log('success')$0;",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-将数据存储在本地缓存中指定的 key 中"
+    },
+    "ks-将 data 存储在本地缓存中指定的 key 中,同步接口": {
+        "prefix": "ks.setStorageSync()",
+        "body": [
+            "ks.setStorageSync('$0storage_key', '$1hello')"
+        ],
+        "description": "ks-将 data 存储在本地缓存中指定的 key 中"
+    },
+    "ks-从本地缓存中异步获取指定 key 对应的内容": {
+        "prefix": "ks.getStorage()",
+        "body": [
+            "ks.getStorage({",
+                "\tkey: 'storage_key',",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log(res.data)$0;",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-从本地缓存中异步获取指定 key 对应的内容"
+    },
+    "ks-从本地缓存中同步获取指定 key 对应的内容": {
+        "prefix": "ks.getStorageSync()",
+        "body": [
+            "ks.getStorageSync('storage_key$0')"
+        ],
+        "description": "ks-从本地缓存中同步获取指定 key 对应的内容"
+    },
+    "ks-异步获取当前 storage 的相关信息": {
+        "prefix": "ks.getStorageInfo()",
+        "body": [
+            "ks.getStorageInfo({",
+                "\tsuccess: function (res) {",
+                    "\tconsole.log(res.keys);",
+                    "\tconsole.log(res.currentSize);",
+                    "\tconsole.log(res.limitSize);",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-异步获取当前 storage 的相关信息"
+    },
+    "ks-同步获取当前 storage 的相关信息": {
+        "prefix": "ks.getStorageInfoSync()",
+        "body": [
+            "ks.getStorageInfoSync()"
+        ],
+        "description": "ks-同步获取当前 storage 的相关信息"
+    },
+    "ks-从本地缓存中异步移除指定 key": {
+        "prefix": "ks.removeStorage()",
+        "body": [
+            "ks.removeStorage({",
+                "\tkey: 'storage_key',",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log('success');",
+                "\t}",
+            "});$0"
+        ],
+        "description": "ks-从本地缓存中异步移除指定 key"
+    },
+    "ks-从本地缓存中同步移除指定 key。": {
+        "prefix": "ks.removeStorageSync()",
+        "body": [
+            "ks.removeStorageSync('storage_key');"
+        ],
+        "description": "ks-从本地缓存中同步移除指定 key。"
+    },
+    "ks-清理本地数据缓存": {
+        "prefix": "ks.clearStorage()",
+        "body": [
+            "ks.clearStorage();"
+        ],
+        "description": "ks-清理本地数据缓存"
+    },
+    "ks-同步清理本地数据缓存": {
+        "prefix": "ks.clearStorage()",
+        "body": [
+            "ks.clearStorage();"
+        ],
+        "description": "ks-同步清理本地数据缓存"
+    },
+    "ks-获取当前的地理位置": {
+        "prefix": "ks.getLocation()",
+        "body": [
+            "ks.getLocation({",
+                "\ttype: 'wgs84',",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log('当前位置的经度：' + res.longitude);",
+                    "\t\tconsole.log('当前位置的纬度：' + res.latitude);",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-获取当前的地理位置"
+    },
+    "ks-打开地图选择位置": {
+        "prefix": "ks.chooseLocation()",
+        "body": [
+            "ks.chooseLocation({",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log('位置名称：' + res.name);",
+                    "\t\tconsole.log('详细地址：' + res.address);",
+                    "\t\tconsole.log('纬度：' + res.latitude);",
+                    "\t\tconsole.log('经度：' + res.longitude);",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-打开地图选择位置"
+    },
+    "ks-使用应用内置地图查看位置": {
+        "prefix": "ks.getLocation()",
+        "body": [
+            "ks.getLocation({",
+                "\ttype: 'gcj02', //返回可以用于ks.openLocation的经纬度",
+                "\tsuccess: function (res) {",
+                    "\t\tconst latitude = res.latitude;",
+                    "\t\tconst longitude = res.longitude;",
+                    "\t\tks.openLocation({",
+                        "\t\t\tlatitude: latitude,",
+                        "\t\t\tlongitude: longitude,",
+                        "\t\t\tsuccess: function () {",
+                            "\t\t\t\tconsole.log('success');",
+                        "\t\t\t}",
+                    "\t\t});",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-使用应用内置地图查看位置"
+    },
+    "ks-预览图片": {
+        "prefix": "ks.previewImage()",
+        "body": [
+            "ks.previewImage({",
+                "\turls: res.tempFilePaths,",
+                "\tlongPressActions: {",
+                    "\t\titemList: ['发送给朋友', '保存图片', '收藏'],",
+                    "\t\tsuccess: function(data) {",
+                        "\t\t\tconsole.log('选中了第' + (data.tapIndex + 1) + '个按钮,第' + (data.index + 1) + '张图片');",
+                    "\t\t},",
+                    "\t\tfail: function(err) {",
+                        "\t\t\tconsole.log(err.errMsg);",
+                    "\t\t}",
+                "\t}",
+            "});$0"
+        ],
+        "description": "ks-预览图片"
+    },
+    "ks-获取图片信息": {
+        "prefix": "ks.getImageInfo()",
+        "body": [
+            "ks.getImageInfo({",
+                "\tsrc: res.tempFilePaths[0],",
+                "\tsuccess: function (image) {",
+                    "\t\tconsole.log(image.width);",
+                    "\t\tconsole.log(image.height);",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-获取图片信息"
+    },
+    "ks-保存图片到系统相册": {
+        "prefix": "ks.saveImageToPhotosAlbum()",
+        "body": [
+            "ks.saveImageToPhotosAlbum({",
+                "\tfilePath: res.tempFilePaths[0],",
+                "\tsuccess: function () {",
+                    "\t\tconsole.log('save success');",
+                "\t}",
+            "});$0"
+        ],
+        "description": "ks-保存图片到系统相册"
+    },
+    "ks-压缩图片接口，可选压缩质量": {
+        "prefix": "ks.compressImage()",
+        "body": [
+            "ks.compressImage({",
+                "\tsrc: '/static/logo.jpg',",
+                "\tquality: 80,",
+                "\tsuccess: res => {",
+                    "\t\tconsole.log(res.tempFilePath)",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-压缩图片接口，可选压缩质量"
+    },
+    "ks-获取全局唯一的录音管理器 recorderManager": {
+        "prefix": "ks.getRecorderManager()",
+        "body": [
+            "const recorderManager = ks.getRecorderManager();//其他详细请查看官方文档https://ks.dcloud.io/api/media/record-manager"
+         
+        ],
+        "description": "ks-获取全局唯一的录音管理器 recorderManager"
+    },
+    "ks-获取全局唯一的背景音频管理器 backgroundAudioManager": {
+        "prefix": "ks.getBackgroundAudioManager()",
+        "body": [
+            "ks.getBackgroundAudioManager();//其他详细请查看官方文档https://ks.dcloud.io/api/media/background-audio-manager$0"
+        ],
+        "description": "ks-获取全局唯一的背景音频管理器 backgroundAudioManager"
+    },
+    "ks-创建并返回内部 audio 上下文 innerAudioContext 对象": {
+        "prefix": "ks.createInnerAudioContext()",
+        "body": [
+            "const innerAudioContext = ks.createInnerAudioContext();",
+            "innerAudioContext.autoplay = true;",
+            "innerAudioContext.src = 'https://img-cdn-qiniu.dcloud.net.cn/ks/audio/music.mp3';",
+            "innerAudioContext.onPlay(() => {",
+                "\tconsole.log('开始播放');",
+            "});",
+            "innerAudioContext.onError((res) => {",
+                "\tconsole.log(res.errMsg);",
+                "\tconsole.log(res.errCode);",
+            "});$0"
+        ],
+        "description": "ks-创建并返回内部 audio 上下文 innerAudioContext 对象"
+    },
+    "ks-拍摄视频或从手机相册中选视频": {
+        "prefix": "ks.chooseVideo()",
+        "body": [
+            "ks.chooseVideo({",
+                "\tcount: 1,",
+                "\tsourceType: ['camera', 'album'],",
+                "\tsuccess: function (res) {",
+                    "\t\tself.src = res.tempFilePath;",
+                "\t}",
+            "});$0"
+        ],
+        "description": "ks-拍摄视频或从手机相册中选视频"
+    },
+    "ks-保存视频到系统相册": {
+        "prefix": "ks.saveVideoToPhotosAlbum()",
+        "body": [
+            "ks.saveVideoToPhotosAlbum({",
+                "\tfilePath: res.tempFilePath,",
+                "\tsuccess: function () {",
+                    "\t\tconsole.log('save success');",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-保存视频到系统相册"
+    },
+    "ks-创建并返回 video 上下文 videoContext 对象": {
+        "prefix": "ks.createVideoContext(videoId, this)",
+        "body": [
+            "this.videoContext = ks.createVideoContext('myVideo')//更多请查找官方文档https://ks.dcloud.io/api/media/video-context"
+        ],
+        "description": "ks-创建并返回 video 上下文 videoContext 对象"
+    },
+    "ks-创建并返回 camera 组件的上下文 cameraContext 对象": {
+        "prefix": "ks.createCameraContext()",
+        "body": [
+            "ks.createCameraContext()//更多请查找官方文档https://ks.dcloud.io/api/media/camera-context"
+        ],
+        "description": "ks-创建并返回 camera 组件的上下文 cameraContext 对象"
+    },
+    "ks-": {
+        "prefix": "ks.createLivePlayerContext(livePlayerId, this)",
+        "body": [
+            "ks.createLivePlayerContext(livePlayerId, this)//更多请查找官方文档https://ks.dcloud.io/api/media/live-player-context?id=createliveplayercontext"
+        ],
+        "description": "ks-"
+    },
+    "ks-创建 live-pusher 上下文 livePusherContext 对象": {
+        "prefix": "ks.createLivePusherContext(livePusherId, this)",
+        "body": [
+            "ks.createLivePusherContext(livePusherId, this)//更多请查找官方文档https://ks.dcloud.io/api/media/live-player-context?id=createliveplayercontext"
+        ],
+        "description": "ks-创建 live-pusher 上下文 livePusherContext 对象"
+    },
+    "ks-获取系统信息": {
+        "prefix": "ks.getSystemInfo(OBJECT)",
+        "body": [
+            "ks.getSystemInfo({",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log(res.model);",
+                    "\t\tconsole.log(res.pixelRatio);",
+                    "\t\tconsole.log(res.windowWidth);",
+                    "\t\tconsole.log(res.windowHeight);",
+                    "\t\tconsole.log(res.language);",
+                    "\t\tconsole.log(res.version);",
+                    "\t\tconsole.log(res.platform);",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-获取系统信息"
+    },
+    "ks-获取系统信息同步接口": {
+        "prefix": "ks.getSystemInfoSync()",
+        "body": [
+            "const res = ks.getSystemInfoSync();",
+            "console.log(res.model);",
+            "console.log(res.pixelRatio);",
+            "console.log(res.windowWidth);",
+            "console.log(res.windowHeight);",
+            "console.log(res.language);",
+            "console.log(res.version);",
+            "console.log(res.platform);"
+        ],
+        "description": "ks-获取系统信息同步接口"
+    },
+    "ks-判断应用的 API，回调，参数，组件等是否在当前版本可用": {
+        "prefix": "ks.canIUse(String)",
+        "body": [
+            "ks.canIUse('getSystemInfoSync.return.screenWidth');",
+            "ks.canIUse('getSystemInfo.success.screenWidth');",
+            "ks.canIUse('showToast.object.image');",
+            "ks.canIUse('request.object.method.GET');",
+            "ks.canIUse('live-player');",
+            "ks.canIUse('text.selectable');",
+            "ks.canIUse('button.open-type.contact');"
+        ],
+        "description": "ks-判断应用的 API，回调，参数，组件等是否在当前版本可用"
+    },
+    "ks-监听内存不足告警事件": {
+        "prefix": "ks.onMemoryWarning()",
+        "body": [
+            "ks.onMemoryWarning(function (){",
+                "\tconsole.log('onMemoryWarningReceive')$0",
+            "});"
+        ],
+        "description": "ks-监听内存不足告警事件"
+    },
+    "ks-获取网络类型": {
+        "prefix": "ks.getNetworkType(OBJECT)",
+        "body": [
+            "ks.getNetworkType({",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log(res.networkType);$0",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-获取网络类型"
+    },
+    "ks-监听网络状态变化": {
+        "prefix": "ks.onNetworkStatusChange()",
+        "body": [
+            "ks.onNetworkStatusChange(function (res) {",
+                "\tconsole.log(res.isConnected);",
+                "\tconsole.log(res.networkType);$0",
+            "});"
+        ],
+        "description": "ks-"
+    },
+    "ks-监听加速度数据": {
+        "prefix": "ks.onAccelerometerChange(CALLBACK)",
+        "body": [
+            "ks.onAccelerometerChange(function (res) {",
+                "\tconsole.log(res.x);",
+                "\tconsole.log(res.y);",
+                "\tconsole.log(res.z);",
+            "});"
+        ],
+        "description": "ks-监听加速度数据"
+    },
+    "ks-开始监听加速度数据": {
+        "prefix": "ks.startAccelerometer()",
+        "body": [
+            "ks.startAccelerometer();"
+        ],
+        "description": "ks-开始监听加速度数据"
+    },
+    "ks-停止监听加速度数据": {
+        "prefix": "ks.stopAccelerometer()",
+        "body": [
+            "ks.stopAccelerometer();"
+        ],
+        "description": "ks-停止监听加速度数据"
+    },
+    "ks-监听罗盘数据": {
+        "prefix": "ks.onCompassChange(CALLBACK)",
+        "body": [
+            "ks.onCompassChange(function (res) {",
+                "\tconsole.log(res.direction);$0",
+            "});//更多关于设备api请访问官方文档https://ks.dcloud.io/api/system/gyroscope?id=ongyroscopechange"
+        ],
+        "description": "ks-监听罗盘数据"
+    },
+    "ks-开始监听罗盘数据": {
+        "prefix": "ks.startCompass(OBJECT)",
+        "body": [
+            "ks.startCompass()//更多关于设备api请访问官方文档https://ks.dcloud.io/api/system/gyroscope?id=ongyroscopechange"
+        ],
+        "description": "ks-开始监听罗盘数据"
+    },
+    "ks-停止监听罗盘数据": {
+        "prefix": "ks.stopCompass()",
+        "body": [
+            "ks.stopCompass()//更多关于设备api请访问官方文档https://ks.dcloud.io/api/system/gyroscope?id=ongyroscopechange"
+        ],
+        "description": "ks-停止监听罗盘数据"
+    },
+    "ks-监听陀螺仪数据变化事件": {
+        "prefix": "ks.onGyroscopeChange()",
+        "body": [
+            "ks.onGyroscopeChange(CALLBACK)//更多关于设备api请访问官方文档https://ks.dcloud.io/api/system/gyroscope?id=ongyroscopechange"
+        ],
+        "description": "ks-监听陀螺仪数据变化事件"
+    },
+    "ks-显示消息提示框": {
+        "prefix": "ks.showToast()",
+        "body": [
+            "ks.showToast({",
+                "\ttitle: '标题',",
+                "\tduration: 2000",
+            "});"
+        ],
+        "description": "ks-显示消息提示框"
+    },
+    "ks-隐藏消息提示框": {
+        "prefix": "ks.hideToast()",
+        "body": [
+            "ks.hideToast();"
+        ],
+        "description": "ks-隐藏消息提示框"
+    },
+    "ks-显示 loading 提示框": {
+        "prefix": "ks.showLoading()",
+        "body": [
+            "ks.showLoading({",
+                "\ttitle: '加载中'$0",
+            "});"
+        ],
+        "description": "ks-显示 loading 提示框"
+    },
+    "ks-隐藏 loading 提示框": {
+        "prefix": "ks.hideLoading()",
+        "body": [
+            "ks.hideLoading();"
+        ],
+        "description": "ks-隐藏 loading 提示框"
+    },
+    "ks-显示模态弹窗": {
+        "prefix": "ks.showModal()",
+        "body": [
+            "ks.showModal({",
+                "\ttitle: '提示',",
+                "\tcontent: '这是一个模态弹窗',",
+                "\tsuccess: function (res) {",
+                    "\t\tif (res.confirm) {",
+                        "\t\t\tconsole.log('用户点击确定');",
+                    "\t\t} else if (res.cancel) {",
+                        "\t\t\tconsole.log('用户点击取消');",
+                    "\t\t}",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-显示模态弹窗"
+    },
+    "ks-​显示操作菜单": {
+        "prefix": "ks.showActionSheet()",
+        "body": [
+            "ks.showActionSheet({",
+                "\titemList: ['A', 'B', 'C'],",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log('选中了第' + (res.tapIndex + 1) + '个按钮');",
+                "\t},",
+                "\tfail: function (res) {",
+                    "\t\tconsole.log(res.errMsg);",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-​显示操作菜单"
+    },
+    "ks-动态设置当前页面的标题": {
+        "prefix": "ks.setNavigationBarTitle()",
+        "body": [
+            "ks.setNavigationBarTitle({",
+                "\ttitle: '新的标题'$0",
+            "});"
+        ],
+        "description": "ks-动态设置当前页面的标题"
+    },
+
+    "ks-设置页面导航条颜色": {
+        "prefix": "ks.setNavigationBarColor()",
+        "body": [
+            "ks.setNavigationBarColor({",
+                "\tfrontColor: '#ffffff',",
+                "\tbackgroundColor: '#ff0000',",
+                "\tanimation: {",
+                    "\t\tduration: 400,",
+                    "\t\ttimingFunc: 'easeIn'",
+                "\t}",
+            "});$0"
+        ],
+        "description": "ks-设置页面导航条颜色"
+    },
+    "ks-在当前页面显示导航条加载动画": {
+        "prefix": "ks.showNavigationBarLoading()",
+        "body": [
+            "ks.showNavigationBarLoading()"
+        ],
+        "description": "ks-在当前页面显示导航条加载动画"
+    },
+    "ks-在当前页面隐藏导航条加载动画": {
+        "prefix": "ks.hideNavigationBarLoading()",
+        "body": [
+            "ks.hideNavigationBarLoading()"
+        ],
+        "description": "ks-在当前页面隐藏导航条加载动画"
+    },
+    "ks-动态设置 tabBar 某一项的内容": {
+        "prefix": "ks.setTabBarItem()",
+        "body": [
+            "ks.setTabBarItem({",
+                "\tindex: 0,",
+                "\ttext: 'text',",
+                "\ticonPath: '/path/to/iconPath',",
+                "\tselectedIconPath: '/path/to/selectedIconPath'",
+            "});"
+        ],
+        "description": "ks-动态设置 tabBar 某一项的内容"
+    },
+    "ks-动态设置 tabBar 的整体样式": {
+        "prefix": "ks.setTabBarStyle()",
+        "body": [
+            "ks.setTabBarStyle({",
+                "\tcolor: '#FF0000',",
+                "\tselectedColor: '#00FF00',",
+                "\tbackgroundColor: '#0000FF',",
+                "\tborderStyle: 'white'",
+            "});"
+        ],
+        "description": "ks-动态设置 tabBar 的整体样式"
+    },
+    "ks-隐藏 tabBar": {
+        "prefix": "ks.hideTabBar()",
+        "body": [
+            "ks.hideTabBar()"
+        ],
+        "description": "ks-隐藏 tabBar"
+    },
+    "ks-显示 tabBar": {
+        "prefix": "ks.showTabBar()",
+        "body": [
+            "ks.showTabBar()"
+        ],
+        "description": "ks-显示 tabBar"
+    },
+    "ks-为 tabBar 某一项的右上角添加文本": {
+        "prefix": "ks.setTabBarBadge()",
+        "body": [
+            "ks.setTabBarBadge({",
+                "index: 0,",
+                "text: '1'",
+            "});"
+        ],
+        "description": "ks-为 tabBar 某一项的右上角添加文本"
+    },
+    "ks-移除 tabBar 某一项右上角的文本": {
+        "prefix": "ks.removeTabBarBadge()",
+        "body": [
+            "ks.removeTabBarBadge({",
+                "index: 0,",
+            "});"
+        ],
+        "description": "ks-移除 tabBar 某一项右上角的文本"
+    },
+    "ks-显示 tabBar 某一项的右上角的红点": {
+        "prefix": "ks.showTabBarRedDot(OBJECT)",
+        "body": [
+            "ks.showTabBarRedDot({",
+                "index: 0,",
+            "});"
+        ],
+        "description": "ks-显示 tabBar 某一项的右上角的红点"
+    },
+    "ks-隐藏 tabBar 某一项的右上角的红点": {
+        "prefix": "ks.hideTabBarRedDot(OBJECT)",
+        "body": [
+            "ks.hideTabBarRedDot({",
+                "index: 0,",
+            "});"
+        ],
+        "description": "ks-隐藏 tabBar 某一项的右上角的红点"
+    },
+    "ks-动态设置窗口的背景色": {
+        "prefix": "ks.setBackgroundColor()",
+        "body": [
+            "ks.setBackgroundColor({",
+                "\tbackgroundColor: '#ffffff'$0",
+                "\backgroundColorTop: '#ffffff'",
+                "\backgroundColorBottom: '#ffffff'",
+            "});"
+        ],
+        "description": "ks-动态设置窗口的背景色"
+    },
+    "ks-动态设置下拉背景字体、loading 图的样式": {
+        "prefix": "ks.setBackgroundTextStyle()",
+        "body": [
+            "ks.setBackgroundTextStyle({",
+                "\ttextStyle: 'dark' // 下拉背景字体、loading 图的样式为dark$0",
+            "});"
+        ],
+        "description": "ks-动态设置下拉背景字体、loading 图的样式"
+    },
+    "ks-创建一个动画实例 animation": {
+        "prefix": "ks.createAnimation()",
+        "body": [
+            "var animation = ks.createAnimation({",
+                "\ttransformOrigin: '50% 50%',",
+                "\tduration: 1000,",
+                "\ttimingFunction: 'ease',",
+                "\tdelay: 0",
+            "})//官方文档https://ks.dcloud.io/api/ui/animation?id=createanimation"
+        ],
+        "description": "ks-创建一个动画实例 animation"
+    },
+    "ks-将页面滚动到目标位置": {
+        "prefix": "ks.pageScrollTo()",
+        "body": [
+            "ks.pageScrollTo({",
+                "\tscrollTop: 0,",
+                "\tduration: 300",
+            "});"
+        ],
+        "description": "ks-将页面滚动到目标位置"
+    },
+    
+    "ks-监听窗口尺寸变化事件": {
+        "prefix": "ks.onWindowResize()",
+        "body": [
+            "ks.onWindowResize((res) => {",
+                "\tconsole.log('变化后的窗口宽度=' + res.size.windowWidth)",
+                "\tconsole.log('变化后的窗口高度=' + res.size.windowHeight)",
+            "})"
+        ],
+        "description": "ks-监听窗口尺寸变化事件"
+    },
+    "ks-取消监听窗口尺寸变化事件": {
+        "prefix": "ks.offWindowResize()",
+        "body": [
+            "ks.offWindowResize(() => {",
+                "\tconsole.log('取消监听窗口尺寸变化事件')$0",
+            "});"
+        ],
+        "description": "ks-取消监听窗口尺寸变化事件"
+    },
+    "ks-动态加载字体": {
+        "prefix": "ks.loadFontFace()",
+        "body": [
+            "ks.loadFontFace({",
+                "\tfamily: 'Bitstream Vera Serif Bold',",
+                "\tsource: 'url()',",
+                "\tsuccess() {",
+                    "\t\tconsole.log('success')",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-动态加载字体"
+    },
+    "ks-函数用于获取当前页面栈的实例": {
+        "prefix": "getCurrentPages()",
+        "body": [
+            "getCurrentPages()//关于获取页面的官方文档https://ks.dcloud.io/api/window/window"
+        ],
+        "description": "ks-函数用于获取当前页面栈的实例"
+    },
+    "ks-保存文件到本地": {
+        "prefix": "ks.saveFile()",
+        "body": [
+            "ks.saveFile({",
+                "\ttempFilePath: tempFilePaths[0],",
+                "\tsuccess: function (res) {",
+                   "\t\tvar savedFilePath = res.savedFilePath;",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-保存文件到本地"
+    },
+    "ks-获取本地已保存的文件列表": {
+        "prefix": "ks.getSavedFileList()",
+        "body": [
+            "ks.getSavedFileList({",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log(res.fileList);",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-获取本地已保存的文件列表"
+    },
+    "ks-获取本地文件的文件信息": {
+        "prefix": "ks.getSavedFileInfo()",
+        "body": [
+            "ks.getSavedFileInfo({",
+                "\tfilePath: 'unifile://somefile', //仅做示例用，非真正的文件路径",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log(res.size);",
+                    "\t\tconsole.log(res.createTime);",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-获取本地文件的文件信息"
+    }, 
+    "ks-删除本地存储的文件": {
+        "prefix": "ks.removeSavedFile()",
+        "body": [
+            "ks.removeSavedFile({",
+                "\tfilePath: res.fileList[0].filePath,",
+                "\tcomplete: function (res) {",
+                    "\t\tconsole.log(res);",
+                "\t}",
+            "});"
+        ],
+        "description": "ks-删除本地存储的文件"
+    }, 
+    "ks-获取文件信息": {
+        "prefix": "ks.getFileInfo()",
+        "body": [
+            "ks.ks.getFileInfo({",
+                "\tfilePath: res.fileList[0].filePath,",
+            "});"
+        ],
+        "description": "ks-获取文件信息"
+    }, 
+    "ks-新开页面打开文档,支持格式：doc, xls, ppt, pdf, docx, xlsx, pptx。": {
+        "prefix": "openDocument()",
+        "body": [
+            "openDocument({",
+                "\tfilePath: filePath,",
+                "\tsuccess: function (res) {",
+                    "\t\tconsole.log('打开文档成功');",
+                "\t})",
+            "});"
+        ],
+        "description": "ks-新开页面打开文档"
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "name": "ks-snippet",
+    "displayName": "ks-snippet",
+    "description": "快手片段提示",
+    "version": "0.0.1",
+    "publisher": "TopMrones",
+    "icon": "images/ks.png",
+    "engines": {
+        "vscode": "^1.40.0"
+    },
+    "author": {
+        "email": "1426455005@qq.com",
+        "name": "思量短.",
+        "blog": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wanghuifeng1997/vscode-ks-snippet.git"
+    },
+    "keywords": [
+        "ks",
+        "snippet"
+    ],
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "ksml",
+                "path": "./snippets/html.json"
+            }
+        ]
+    }
+}
